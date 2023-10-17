@@ -8,7 +8,7 @@ class ModelConfigs(BaseModelConfigs):
     def __init__(self):
         super().__init__()
         self.model_path = os.path.join(
-            "Models", datetime.strftime(datetime.now(), "%Y%m%d%H%M"))
+            "TrainedModels", datetime.strftime(datetime.now(), "%Y%m%d%H%M"))
         self.vocab = ""
         self.height = 96
         self.width = 1410
