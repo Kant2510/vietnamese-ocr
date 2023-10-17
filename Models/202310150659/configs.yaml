@@ -1,0 +1,15 @@
+batch_size: 32
+height: 96
+learning_rate: 0.0005
+max_text_length: 68
+model_path: models/202310150659
+train_epochs: 175
+train_workers: 20
+vocab: "'i\u1EF74\u1EBFH\u1EBD7\xFD\u1EA7\u1ED5/\u1EA1\xDD8\xED\u1EE9\u0129 \u1EE7\
+  y\u1EC5\u1EB7\u1ED4\xF3E\u1EC9Nu\u1EA2\u0169\xF2\u1EC1\u1EB5\u1EEBxc9Y\u1EADMr\u1ECD\
+  \u1EA4fG\xE9\xC1\u01B0\u1EE5\u0111\u1ECFq\xE86\u1EF5OV2\u1EA9\u1EABB5\xCD\u1EDD\u1EDB\
+  \u1EEFo\u01AFCKU\xD4I\u1EA5\u0110h\u1EB9RSp\u1ED9vdb\u1EB3\u1EC7\u1EB1F\xF4\xC2\xEC\
+  gz\u1ED3Xl\xFA1\u1EF3\xE3\xF5\u01A1De\u1ECBJ\u1EE1smT\u1EDE\u1EC3\u1ED7\u1EF1\xD3\
+  \xEAaP\u1EAF\xE23\u1EBB\u1EF9t\u1EE3n\u1EA3k\u1EDF\u1EE8\u1ED1\xE1W\xF9\xE0\u0103\
+  \u1EEDQAL"
+width: 1408

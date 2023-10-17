@@ -1,0 +1,14 @@
+keras==2.10.0
+Levenshtein==0.23.0
+matplotlib==3.8.0
+mltu==1.1.4
+numpy==1.25.2
+onnx==1.14.1
+onnxruntime==1.16.1
+opencv-python==4.8.1.78
+scikit-learn==1.3.1
+scipy==1.11.3
+tensorboard==2.10.1
+tensorflow==2.10.0
+tf2onnx==1.15.1
+tqdm==4.66.1
