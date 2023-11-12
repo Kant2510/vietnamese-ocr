@@ -64,7 +64,7 @@ class ResNet(nn.Module):
                                1], kernel_size=3, stride=1, padding=1, bias=False)
         self.bn2 = nn.BatchNorm2d(self.output_channel_block[1])
 
-        self.maxpool3 = nn.MaxPool2d(kernel_size=2, stride=(2, 1), padding=(0, 1))
+        self.maxpool3 = nn.MaxPool2d(kernel_size=2, stride=(2), padding=(0))
         self.layer3 = self._make_layer(block, self.output_channel_block[2], layers[2], stride=1)
         self.conv3 = nn.Conv2d(self.output_channel_block[2], self.output_channel_block[
                                2], kernel_size=3, stride=1, padding=1, bias=False)
@@ -72,11 +72,13 @@ class ResNet(nn.Module):
 
         self.layer4 = self._make_layer(block, self.output_channel_block[3], layers[3], stride=1)
         self.conv4_1 = nn.Conv2d(self.output_channel_block[3], self.output_channel_block[
-                                 3], kernel_size=2, stride=(2, 1), padding=(0, 1), bias=False)
+                                 3], kernel_size=2, stride=(2), padding=(0), bias=False)
         self.bn4_1 = nn.BatchNorm2d(self.output_channel_block[3])
         self.conv4_2 = nn.Conv2d(self.output_channel_block[3], self.output_channel_block[
-                                 3], kernel_size=2, stride=1, padding=0, bias=False)
+                                 3], kernel_size=2, stride=2, padding=0, bias=False)
         self.bn4_2 = nn.BatchNorm2d(self.output_channel_block[3])
+
+        self.fc = nn.Linear(512, 256)
 
     def _make_layer(self, block, planes, blocks, stride=1):
         downsample = None
@@ -128,13 +130,12 @@ class ResNet(nn.Module):
         x = self.conv4_2(x)
         x = self.bn4_2(x)
         conv = self.relu(x)
-        
-        conv = conv.transpose(-1, -2)
-        conv = conv.flatten(2)
-        conv = conv.permute(-1, 0, 1)
 
+        conv = conv.flatten(2)
+        conv = conv.transpose(-1, -2)
+        conv = self.fc(conv)
+        conv = conv.permute(1, 0, -1)
         return conv
 
 def Resnet50(ss, hidden):
     return ResNet(3, hidden, BasicBlock, [1, 2, 5, 3])
-
